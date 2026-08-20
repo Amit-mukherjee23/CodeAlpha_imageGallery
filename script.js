@@ -1,4 +1,4 @@
-// --- Sample Image Data ---
+
 const galleryData = [
   { id: 1, title: 'Misty Forest Trail', category: 'nature', url: 'https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=800&q=80' },
   { id: 2, title: 'Modern Skyscraper', category: 'architecture', url: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80' },
@@ -26,7 +26,7 @@ const galleryData = [
 
 ];
 
-// --- DOM Elements ---
+
 const gallery = document.getElementById('gallery');
 const filterBtns = document.querySelectorAll('.filter-btn');
 const searchInput = document.getElementById('search');
@@ -40,7 +40,7 @@ const nextBtn = document.getElementById('next-btn');
 let visibleItems = [];
 let currentIndex = 0;
 
-// --- Render Gallery Grid ---
+
 function renderGallery() {
   gallery.innerHTML = galleryData.map(item => `
     <div class="gallery-item" data-category="${item.category}" data-title="${item.title.toLowerCase()}" data-id="${item.id}">
@@ -55,12 +55,12 @@ function renderGallery() {
   updateVisibleItems();
 }
 
-// --- Track Active/Visible Items ---
+
 function updateVisibleItems() {
   visibleItems = Array.from(document.querySelectorAll('.gallery-item:not(.hidden)'));
 }
 
-// --- Filter & Search Logic ---
+
 function filterGallery() {
   const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
   const searchQuery = searchInput.value.toLowerCase().trim();
@@ -79,7 +79,7 @@ function filterGallery() {
   updateVisibleItems();
 }
 
-// --- Lightbox Functions ---
+
 function openLightbox(index) {
   currentIndex = index;
   const targetElement = visibleItems[currentIndex];
@@ -103,9 +103,9 @@ function navigateLightbox(direction) {
   openLightbox(currentIndex);
 }
 
-// --- Event Listeners ---
 
-// 1. Category Filtering
+
+
 filterBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     filterBtns.forEach(b => b.classList.remove('active'));
@@ -114,10 +114,10 @@ filterBtns.forEach(btn => {
   });
 });
 
-// 2. Real-time Search
+
 searchInput.addEventListener('input', filterGallery);
 
-// 3. Grid Click to Open Lightbox
+
 gallery.addEventListener('click', (e) => {
   const item = e.target.closest('.gallery-item');
   if (item && !item.classList.contains('hidden')) {
@@ -126,17 +126,16 @@ gallery.addEventListener('click', (e) => {
   }
 });
 
-// 4. Lightbox Controls
+
 closeBtn.addEventListener('click', closeLightbox);
 prevBtn.addEventListener('click', () => navigateLightbox(-1));
 nextBtn.addEventListener('click', () => navigateLightbox(1));
 
-// Close when clicking overlay outside content
+
 lightbox.addEventListener('click', (e) => {
   if (e.target === lightbox) closeLightbox();
 });
 
-// 5. Keyboard Navigation
 document.addEventListener('keydown', (e) => {
   if (!lightbox.classList.contains('active')) return;
   if (e.key === 'Escape') closeLightbox();
