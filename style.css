@@ -1,4 +1,4 @@
-/* --- CSS Variables & Reset --- */
+
 :root {
   --bg-color: #0f172a;
   --card-bg: #1e293b;
@@ -30,7 +30,7 @@ body {
   margin: 0 auto;
 }
 
-/* --- Header & Controls --- */
+
 header {
   text-align: center;
   margin-bottom: 2rem;
@@ -97,7 +97,7 @@ header p {
   box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
 }
 
-/* --- Gallery Grid --- */
+
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -162,7 +162,7 @@ header p {
   text-transform: capitalize;
 }
 
-/* --- Lightbox Modal --- */
+
 .lightbox {
   position: fixed;
   inset: 0;
@@ -206,7 +206,7 @@ header p {
   font-size: 1.1rem;
 }
 
-/* Lightbox Navigation & Close Buttons */
+
 .lightbox-btn {
   position: absolute;
   background: rgba(255, 255, 255, 0.1);
@@ -246,7 +246,7 @@ header p {
   transform: translateY(-50%);
 }
 
-/* --- Responsive Tweaks --- */
+
 @media (max-width: 640px) {
   .controls {
     flex-direction: column;
